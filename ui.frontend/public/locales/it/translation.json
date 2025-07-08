@@ -1,0 +1,9 @@
+{
+    "email_input_label": "Indirizzo Email",
+    "email_placeholder_label": "email@example.com",
+    "email_validation_error": "Inserisci un Indirizzo email valido.",
+    "passowrd_input_label": "Passowrd",
+    "password_placeholder_label": "********",
+    "password_generic_error": "Per favore inserisci una passord.",
+    "password_validation_error": "la passowrd deve contenere almeno: 8 caratteri tra cui uno maiuscolo e un carattere speciale."
+}

@@ -1,4 +1,6 @@
 import React from 'react'
+import { useTranslation, Trans } from 'react-i18next'
+import { validateEmail, validatePassowrd } from '../../utils/helper'
 import { useNavigate, Link } from 'react-router-dom'
 import AuthLayout from '../../components/layouts/AuthLayout'
 import Input from '../../components/inputs/Input'
@@ -8,18 +10,22 @@ const Login = () => {
   const [password, setPassword] = React.useState('');
   const [error, setError] = React.useState(null);
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
   //handle login form submit
   const handleLogin = async (e) => {
     e.preventDefault();
 
     if(!validateEmail(email)) {
-      setError("Please enter a valid email address.")
+      setError(t('email_validation_error'))
       return;
     }
 
-    if(!password) {
+    if(password === "") {
       setError("Please enter valid password.");
+      return;
+    } else if(!validatePassowrd(password)) {
+      setError("Password must contain at leat 8 characters, 1 uppercase and a special character.");
       return;
     }
 
@@ -48,7 +54,7 @@ const Login = () => {
             onChange={({ target }) => setPassword( target.value )}
             label="Password" 
             placeholder='*********'
-            type="password" //TODO Add tooltip "Password must contain at least 1 uppercase 1 special character ecc..."
+            type="password"
           />
 
           {error && 

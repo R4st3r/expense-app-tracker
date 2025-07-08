@@ -10,6 +10,7 @@ import SignUp from './pages/Auth/SignUp';
 import Home from './pages/Dashboard/Home';
 import Income from './pages/Dashboard/Income';
 import Expense from './pages/Dashboard/Expense';
+import './i18n/i18n'
 
 //'rafcet' to set up the component
 const Root = () => {
@@ -17,7 +18,7 @@ const Root = () => {
   const isAuthenticated = !!localStorage.getItem('token'); // '!!' is used to convert boolean to boolean -> != null;
 
   //redirect to dashboard if user is autheticated otherwise to login
- return isAuthenticated ? <Navigate to="/dashboard" /> : <Navigate to="/login" />;
+  return isAuthenticated ? <Navigate to="/dashboard" /> : <Navigate to="/login" />;
 }
 
 const App = () => {
